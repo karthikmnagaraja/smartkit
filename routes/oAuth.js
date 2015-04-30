@@ -7,10 +7,17 @@ var router = express.Router();
 var username = '1ed80977-1650-4403-8679-080e8b840dfa';
 var password = 'e4156c68-1d24-4d54-a604-6e872f63eb94';
 
-router.post('/', function(req, res, next) {
-    login(req,res);
-});
+/*router.post('/', function(req, res, next) {
+ login(req,res);
+ });
+ */
 router.post('/arduino', function(req, res, next) {
+    res.removeHeader('X-Powered-By');
+    res.removeHeader('Connection');
+    res.removeHeader('Content-Length');
+    res.removeHeader('Content-Type');
+    res.removeHeader('Date');
+    res.removeHeader('ETag');
     arduinoLogin(req,res);
 });
 var method = 'POST';
@@ -54,9 +61,11 @@ function performRequestArduino(req,res,endpoint, method, data, success) {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
             //console.log(responseObject);
-            res.status(200).send(
-                responseObject.access_token
+            res.header(
+                'AT',responseObject.access_token
             );
+            res.status(200);
+            res.end();
         });
     }).on('error', function(e) {
         console.log("Got error: ");
