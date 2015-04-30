@@ -2,20 +2,22 @@ extends layout
 
 block content
   h1.main SmartKit
-  div
-  form.form-signin(action='/login', method='post')
+  div(ng-controller="LoginCtrl")
     h2.form-signin-heading Please sign in
+    label(for='username') UserName:
+    input(ng-model='form.title', name='username', placeholder="Usename",autofocus='autofocus')
+    label(for='password') Password:
+    input.input-block-level(type='password', placeholder='Password', name='password')
+    p
+      button(ng-click='Login()') Submit
+
+
+
+
+//    h2.form-signin-heading Please sign in
     input.input-block-level(type='text', placeholder='Username', name='username', autofocus='autofocus')
     input.input-block-level(type='password', placeholder='Password', name='password')
     p
       i
 
     button.btn.btn-large.btn-primary(type='submit') Sign in
-
-    div(ng-view)
-      script(src='js/lib/angular/angular.js')
-    script(src='js/app.js')
-    script(src='js/services.js')
-    script(src='js/controllers.js')
-    script(src='js/filters.js')
-    script(src='js/directives.js')

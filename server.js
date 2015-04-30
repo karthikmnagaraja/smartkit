@@ -16,7 +16,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 //OAuth
 var oAuth=require('./routes/oAuth');
-
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -28,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/javascripts')));
 
 app.use('/', routes);
 app.use('/users', users);

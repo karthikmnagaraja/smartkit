@@ -1,12 +1,29 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
-  config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+var app = angular.module('myApp',[]);
+
+app.controller('LoginCtrl', ['$http', '$scope', function($http, $scope){
+
+
+  $scope.Login = function(){
+    console.log("HIT LOGIN!!")
+    $http({
+      method : 'POST',
+      url : '/oAuth'
+    }).success(function(data, status, headers, config) {
+
+    }).error(function(data, status, headers, config) {
+      alert( "failure");
+    });
+
+}}]);
+
+  /*config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
         templateUrl: 'partials/index',
-        controller: IndexCtrl
+        controller: Login
       }).
       when('/addPost', {
         templateUrl: 'partials/addPost',
@@ -27,5 +44,4 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true);
-  }]);
+    $locationProvider.html5Mode(true);*/
