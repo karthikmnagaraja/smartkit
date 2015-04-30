@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-function IndexCtrl($scope, $http) {
+function login($scope, $http) {
   $http.get('/api/posts').
     success(function(data, status, headers, config) {
       $scope.posts = data.posts;
