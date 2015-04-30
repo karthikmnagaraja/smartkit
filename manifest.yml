@@ -1,0 +1,10 @@
+---
+applications:
+# App Name
+- name: SmartKitNodeApp
+# memory to be provided to the app instance
+  memory: 256M
+# Subdomain name for the app
+  host: smartkit
+#	The command to start of the node app
+  command: node server.js
