@@ -6,7 +6,7 @@
 // call the packages we need
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/oAuth',oAuth);
 ////////////////////////////////////////////////////////////////////////////////////
 
 // configure app to use bodyParser()
@@ -52,8 +52,6 @@ var router = express.Router();              // get an instance of the express Ro
 app.use('/api', router);
 
 
-
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);

@@ -7,7 +7,7 @@ var router = express.Router();
 var username = '1ed80977-1650-4403-8679-080e8b840dfa';
 var password = 'e4156c68-1d24-4d54-a604-6e872f63eb94';
 
-router.post('/oAuth', function(req, res, next) {
+router.post('/', function(req, res, next) {
     login();
 });
 
