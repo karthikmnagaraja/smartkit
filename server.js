@@ -59,8 +59,6 @@ router.get('/', function(req, res) {
 // all of our routes will be prefixed with /api
 app.use('/api', router);
 
-login();
-
 // START THE SERVER
 // =============================================================================
 app.listen(port);
