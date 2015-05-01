@@ -11,12 +11,7 @@ router.get('/', function(req, res, next) {
     getUser(req,res);
 });
     function getMemberships(req,res,endpoint, method,accessToken){
-    res.removeHeader('X-Powered-By');
-    res.removeHeader('Connection');
-    res.removeHeader('Content-Length');
-    res.removeHeader('Content-Type');
-    res.removeHeader('Date');
-    res.removeHeader('ETag');
+
 
     headers = {
         'Authorization' : 'Bearer '+accessToken,
@@ -90,7 +85,7 @@ function getOAuthToken(req,res,endpoint, method) {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
             var accessToken =  responseObject.access_token;
-            getMemberships(req,res,'/group/v1/groups?group.owner.id=FJQ4Y6K0' + '&member.id='+req.query.userId, 'GET', accessToken);
+            getMemberships(req,res,'/group/v1/memberships?group.owner.id=FJQ4Y6K0' + '&member.id='+req.query.userId, 'GET', accessToken);
 //            res.status(200);
   //          res.end();
         });
