@@ -208,7 +208,7 @@ var request = {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
    //        if(responseObject.length==1)
-               console.log(responseObject); 
+               res.send(responseObject); 
            res.status(200);
            res.end();
         });
