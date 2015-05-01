@@ -62,6 +62,7 @@ function getOAuthToken(req,res,endpoint, method) {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
             var accessToken =  responseObject.access_token
+
 	        getUserRequest(req,res,'/person/v1/persons?username='+req.query.userName, 'GET', accessToken);
 	    
 	   //res.status(200);
