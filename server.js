@@ -15,6 +15,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var groups = require('./routes/groups');
+var actions = require('./routes/actions');
 //OAuth
 var oAuth=require('./routes/oAuth');
 //view engine setup
@@ -34,6 +35,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/oAuth',oAuth);
 app.use('/groups', groups);
+app.use('/actions', actions);
 ////////////////////////////////////////////////////////////////////////////////////
 
 // configure app to use bodyParser()
