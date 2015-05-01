@@ -14,6 +14,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var groups = require('./routes/groups');
+var actions = require('./routes/actions');
 //OAuth
 var oAuth=require('./routes/oAuth');
 //view engine setup
@@ -32,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public/javascripts')));
 app.use('/', routes);
 app.use('/menu', users);
 app.use('/oAuth',oAuth);
+app.use('/groups', groups);
+app.use('/actions', actions);
 ////////////////////////////////////////////////////////////////////////////////////
 
 // configure app to use bodyParser()
