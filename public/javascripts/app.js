@@ -7,30 +7,32 @@ app.controller('LoginCtrl', ['$http', '$scope', function($http, $scope){
 
 console.log("Login controller loaded");
   $scope.username='';
-  $scope.groupId='';
-  $scope.users = [
-    {username:'guru',groupId:'1234' },
-    {username:'guru21',groupId:'123434' }];
- var url=uri+'/oAuth';
+  $scope.groupName='';
+  $scope.users ='';
+ var url='/association';
   $scope.Login = function(){
     var req = {
       method: 'POST',
       url: url,
       params: {
-        'username': $scope.username,
-        'groupid': $scope.groupId
+        'userName': $scope.username,
+        'groupName': $scope.groupName
+      },
+      headers:{
+        'Authorization':'Basic MjVmM2UxN2MtOGE5ZS00MTQ0LWE2YjgtNzJiMTM1ZDIzMjE3OjQxMDVkZTAxLWI0NDgtNGNmMy1iZGVlLWJjMjY2ZTI1OGYzMA==',
+        'Accept':'application/vnd.com.covisint.platform.oauth.token.v1+json',
+        'Type':'client_credentials',
+        'application':'tUEb8QHWXDxfljWw0oY3ZIya3ltZwpid'
       }
     }
-    console.log("HIT LOGIN!!"+$scope.username+ $scope.groupId)
+    console.log("HIT LOGIN!!"+$scope.username+ $scope.groupName)
     $http(req).success(function(data, status, headers, config) {
-      $scope.users.push({username:$scope.username,groupId:$scope.groupId });
+      $scope.users.push({username:$scope.username,groupName:$scope.groupName });
       $scope.username='';
-      $scope.groupId='';
+      $scope.groupName='';
     }).error(function(data, status, headers, config) {
       alert( "failure");
-      $scope.users.push({username:$scope.username,groupId:$scope.groupId });
-      $scope.username='';
-      $scope.groupId='';
+
     });
 
 }}]);
