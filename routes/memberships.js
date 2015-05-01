@@ -20,7 +20,8 @@ router.get('/', function(req, res, next) {
 
     headers = {
         'Authorization' : 'Bearer '+accessToken,
-        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup'
+       // 'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup'
+        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;charset=UTF-8'
     };
 
     var options = {
