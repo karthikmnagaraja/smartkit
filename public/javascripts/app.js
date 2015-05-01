@@ -10,7 +10,14 @@ app.controller('LoginCtrl', ['$http', '$scope', function($http, $scope){
   $scope.users =[];
 
   $scope.Login = function(){
-    var url='/association';
+
+      setTimeout(function(){
+        $scope.users.push({deviceName:'demo_device',groupId:'66143888-9d42-469f-a6cf-e90a69cea2ba' });
+        $scope.username='';
+        $scope.groupName='';
+      }, 100);
+    };
+/*    var url='/association';
     var req = {
       method: 'POST',
       url: url,
@@ -37,11 +44,11 @@ app.controller('LoginCtrl', ['$http', '$scope', function($http, $scope){
       $scope.groupName='';
 
     });
+*/
 
 
 
 
-  }
   $scope.updateDevice = function(deviceId, pin, val){
     $http.post('/actions', {
       "deviceId":deviceId,
