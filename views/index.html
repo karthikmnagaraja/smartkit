@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='myApp'>
+<html lang="en" ng-app='myApp' xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -7,7 +7,7 @@
     <meta name="author" content="Nick Salloum">
     <title>Smart Kit - Covisint Hackathon</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,700">
-    <link rel="stylesheet" href="stylesheets/style.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
 
 </head>
 <>
@@ -30,6 +30,34 @@
            --> </section>
         </div>
         <a name="Login">
+            <style scoped>
+
+                .button-success,
+                .button-error,
+                .button-warning,
+                .button-secondary {
+                    color: white;
+                    border-radius: 4px;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                }
+
+                .button-success {
+                    background: rgb(28, 184, 65); /* this is a green */
+                }
+
+                .button-error {
+                    background: rgb(202, 60, 60); /* this is a maroon */
+                }
+
+                .button-warning {
+                    background: rgb(223, 117, 20); /* this is an orange */
+                }
+
+                .button-secondary {
+                    background: rgb(66, 184, 221); /* this is a light blue */
+                }
+
+            </style>
         <div class="container"  id="Login" ng-controller="LoginCtrl">
             <h1> SmartKit</h1>>
             <section>
@@ -39,18 +67,23 @@
                 <label for='groupName'>Group Name:</label>
                 <input type="value" ng-model="groupName" placeholder='groupId' name='groupName'/>
                 <p></p>
-                <button type="submit" ng-click='Login()'>Submit</button>
+                <button  class="button-secondary pure-button" type="submit" ng-click='Login()'>Submit</button>
             </section>
             <section>
 
+
                 <i ng-repeat="user in users">
 
-                    <span class="{{user.username}}">{{user.username}}</span>
-                    <span class="{{user.groupName}}">{{user.groupName}}</span>
+                    <span class="{{user.deviceName}}">{{user.deviceName}}</span>
+                    <span class="{{user.groupId}}">{{user.groupId}}</span>
+                    <button class="button-success pure-button" type="submit" ng-click="updateDevice(user.groupId, 12, 1)" width="75px">ON</button>
+                    <button class="button-warning pure-button" type="submit" ng-click="updateDevice(user.groupId, 12, 1)" width="60px" >OFF</button>
+
                     <br style="clear:both" />
                 </i>
 
             </section>
+
 
         </div>
         </a>
@@ -88,6 +121,7 @@
                 <span class="mm-menu__link-text"><i class="md md-settings"></i> Settings</span>
             </a>
         </li>
+
     </ul>
 </nav><!-- /nav -->
 
@@ -101,6 +135,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
 <script src='javascripts/app.js'></script>
+
 
 </body>
 </html>

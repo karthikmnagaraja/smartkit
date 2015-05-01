@@ -5,12 +5,12 @@ var app = angular.module('myApp',[]);
 var uri='smartkit.run.covapp.io';
 app.controller('LoginCtrl', ['$http', '$scope', function($http, $scope){
 
-console.log("Login controller loaded");
   $scope.username='';
   $scope.groupName='';
-  $scope.users ='';
- var url='/association';
+  $scope.users =[];
+
   $scope.Login = function(){
+    var url='/association';
     var req = {
       method: 'POST',
       url: url,
@@ -27,15 +27,32 @@ console.log("Login controller loaded");
     }
     console.log("HIT LOGIN!!"+$scope.username+ $scope.groupName)
     $http(req).success(function(data, status, headers, config) {
-      $scope.users.push({username:$scope.username,groupName:$scope.groupName });
+      $scope.users.push({deviceName:'demo_device',groupId:'66143888-9d42-469f-a6cf-e90a69cea2ba' });
       $scope.username='';
       $scope.groupName='';
+
     }).error(function(data, status, headers, config) {
-      alert( "failure");
+      $scope.users.push({deviceName:'demo_device',groupId:'66143888-9d42-469f-a6cf-e90a69cea2ba' });
+      $scope.username='';
+      $scope.groupName='';
 
     });
 
-}}]);
+
+
+
+  }
+  $scope.updateDevice = function(deviceId, pin, val){
+    $http.post('/actions', {
+      "deviceId":deviceId,
+      "pin":pin,
+      "val":val
+
+    });
+  }
+}]);
+
+
 
   /*config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
