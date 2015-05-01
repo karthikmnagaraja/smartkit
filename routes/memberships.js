@@ -7,7 +7,7 @@ var host = 'api.us1.covisint.com';
 var https = require('https');
 
 router.get('/', function(req, res, next) {
-    console.log("reached router!!!")
+    console.log("reached router!!!");
     getUser(req,res);
 });
     function getMemberships(req,res,endpoint, method){
