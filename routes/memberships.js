@@ -20,7 +20,8 @@ router.get('/', function(req, res, next) {
 
     headers = {
         'Authorization' : 'Bearer '+accessToken,
-        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup'
+        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup',
+        'Content-Type' : 'application/vnd.com.covisint.platform.group.membership.v1+json'
     };
 
     var options = {
@@ -42,9 +43,10 @@ router.get('/', function(req, res, next) {
 
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
-            console.log("response for memberships"+responseObject);
-            res.send(responseObject);
+            console.log("response for memberships\n"+responseObject);
             res.status(200);
+            res.send(responseObject);
+
             res.end();
         })
 
@@ -61,10 +63,10 @@ function getOAuthToken(req,res,endpoint, method) {
     var headers = {};
 
     headers = {
-        'Authorization' : req.get('Authorization'),
-        'Accept' : req.get('Accept'),
-        'Type' : req.get('Type'),
-        'application-id' : req.get('applicationid')
+        'Authorization' : 'Basic MjVmM2UxN2MtOGE5ZS00MTQ0LWE2YjgtNzJiMTM1ZDIzMjE3OjQxMDVkZTAxLWI0NDgtNGNmMy1iZGVlLWJjMjY2ZTI1OGYzMA==',
+        'Accept' : 'application/vnd.com.covisint.platform.oauth.token.v1+json',
+        'Type' : 'client_credentials',
+        'application-id' : 'tUEb8QHWXDxfljWw0oY3ZIya3ltZwpid'
     };
 
     var options = {
@@ -89,9 +91,8 @@ function getOAuthToken(req,res,endpoint, method) {
             var responseObject = JSON.parse(responseString);
             var accessToken =  responseObject.access_token;
             getMemberships(req,res,'/group/v1/groups?group.owner.id=FJQ4Y6K0' + '&member.id='+req.query.userId, 'GET', accessToken);
-
-            res.status(200);
-            res.end();
+//            res.status(200);
+  //          res.end();
         });
     }).on('error', function(e) {
         console.log("Got error: ");
