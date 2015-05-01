@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Off canvas menu built with HTML5, CSS3, and JavaScript, based on Google's material design principles.">
+    <meta name="author" content="Nick Salloum">
+    <title>Smart Kit - Covisint Hackathon</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,700">
+    <link rel="stylesheet" href="stylesheets/style.min.css">
+
+</head>
+<>
+
+<div id="wrapper" class="wrapper">
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Smart Kit</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section>
+                <h1>Covisint Hackathon Demo</h1>
+                <div id="github-icons"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius esse corporis, velit porro impedit laudantium accusamus! Id velit, illum magni rem mollitia blanditiis iste maiores optio ipsa, est dolorem fugit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam repellendus odio consequatur, iure fuga, saepe sed, eum deserunt error praesentium enim provident qui voluptatibus rerum expedita blanditiis dicta nobis alias. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa qui consequuntur eius aliquam, rerum deleniti. Ipsam neque, nam cumque, sunt, labore autem perferendis suscipit voluptatum praesentium dolores aspernatur quae assumenda.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ea nihil dolorem sapiente ullam obcaecati ipsam omnis, commodi ratione atque aliquid suscipit harum asperiores voluptate accusantium, temporibus saepe fugit iusto.</p></div>
+                <img src="images/xbee.png" align="center" alt="arduino_xbee" style="width:404px;height:328px">
+
+              <!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius esse corporis, velit porro impedit laudantium accusamus! Id velit, illum magni rem mollitia blanditiis iste maiores optio ipsa, est dolorem fugit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam repellendus odio consequatur, iure fuga, saepe sed, eum deserunt error praesentium enim provident qui voluptatibus rerum expedita blanditiis dicta nobis alias. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa qui consequuntur eius aliquam, rerum deleniti. Ipsam neque, nam cumque, sunt, labore autem perferendis suscipit voluptatum praesentium dolores aspernatur quae assumenda.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ea nihil dolorem sapiente ullam obcaecati ipsam omnis, commodi ratione atque aliquid suscipit harum asperiores voluptate accusantium, temporibus saepe fugit iusto.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius esse corporis, velit porro impedit laudantium accusamus! Id velit, illum magni rem mollitia blanditiis iste maiores optio ipsa, est dolorem fugit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam repellendus odio consequatur, iure fuga, saepe sed, eum deserunt error praesentium enim provident qui voluptatibus rerum expedita blanditiis dicta nobis alias. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa qui consequuntur eius aliquam, rerum deleniti. Ipsam neque, nam cumque, sunt, labore autem perferendis suscipit voluptatum praesentium dolores aspernatur quae assumenda.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit ea nihil dolorem sapiente ullam obcaecati ipsam omnis, commodi ratione atque aliquid suscipit harum asperiores voluptate accusantium, temporibus saepe fugit iusto.</p>
+           --> </section>
+        </div>
+        <a name="Login">
+        <div class="container"  id="Login" ng-controller="LoginCtrl">
+            <h1> SmartKit</h1>>
+            <section>
+                <h2 form-signin-heading> Please sign in</h2>
+                <label for='username'> UserName:</label>
+                <input  type="text" ng-model="username" placeholder="Usename" autofocus='autofocus'/>
+                <label for='groupId'>Group ID:</label>
+                <input type="value" ng-model="groupId" placeholder='groupId' name='groupId'/>
+                <p></p>
+                <button type="submit" ng-click='Login()'>Submit</button>
+            </section>
+            <section>
+
+                <i ng-repeat="user in users">
+
+                    <span class="{{user.username}}">{{user.username}}</span>
+                    <span class="{{user.groupId}}">{{user.groupId}}</span>
+                    <br style="clear:both" />
+                </i>
+
+            </section>
+
+        </div>
+        </a>
+    </main>
+</div><!-- /wrapper -->
+
+<button id="mm-menu-toggle" class="mm-menu-toggle">Toggle Menu</button>
+<nav id="mm-menu" class="mm-menu">
+    <div class="mm-menu__header" style="background-image: url(https://build-it.portal.covapp.io/documents/10182/0/color+logo/15f2e36a-10bc-45a3-85b7-03e07811c498?t=1428006259196);">
+        <h2 class="mm-menu__title">Build Hackathon </h2>
+    </div>
+    <ul class="mm-menu__items">
+        <li class="mm-menu__item">
+            <a class="mm-menu__link" href="#Login">
+                <span class="mm-menu__link-text"><i class="md md-home"></i> Device Registration</span>
+            </a>
+        </li>
+        <li class="mm-menu__item">
+            <a class="mm-menu__link" href="#">
+                <span class="mm-menu__link-text"><i class="md md-person"></i> Profile</span>
+            </a>
+        </li>
+        <li class="mm-menu__item">
+            <a class="mm-menu__link" href="#">
+                <span class="mm-menu__link-text"><i class="md md-inbox"></i> Inbox</span>
+            </a>
+        </li>
+        <li class="mm-menu__item">
+            <a class="mm-menu__link" href="#">
+                <span class="mm-menu__link-text"><i class="md md-favorite"></i> Favourites</span>
+            </a>
+        </li>
+        <li class="mm-menu__item">
+            <a class="mm-menu__link" href="#">
+                <span class="mm-menu__link-text"><i class="md md-settings"></i> Settings</span>
+            </a>
+        </li>
+    </ul>
+</nav><!-- /nav -->
+
+<script src="javascripts/lib/materialize/js/materialMenu.min.js"></script>
+<script>
+    var menu = new Menu;
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+<script src='javascripts/app.js'></script>
+
+</body>
+</html>

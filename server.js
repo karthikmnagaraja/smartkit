@@ -16,8 +16,10 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var groups = require('./routes/groups');
 var actions = require('./routes/actions');
+
 //OAuth
 var oAuth=require('./routes/oAuth');
+var association=require('./routes/association');
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,12 +32,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/javascripts')));
-
+//app.register('.html', require('jade'));
 app.use('/', routes);
-app.use('/users', users);
+app.use('/menu', users);
 app.use('/oAuth',oAuth);
 app.use('/groups', groups);
 app.use('/actions', actions);
+app.use('/association',association);
 ////////////////////////////////////////////////////////////////////////////////////
 
 // configure app to use bodyParser()
