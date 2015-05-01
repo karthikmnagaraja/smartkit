@@ -4,9 +4,9 @@ var router = express.Router();
 var host = 'api.us1.covisint.com';
 
 var connection = mysql.createConnection({
-  // host     : '10.96.160.202',
-  host: 'localhost',
-  port: '13306',
+  host     : '10.96.160.202',
+  // host: 'localhost',
+  // port: '13306',
   user     : 'puNMbiYPZdMTyH5J',
   password : 'GYUWpW9p7wGnWdsc',
   database : 'cf_7d851986_532a_479a_93d3_e5ed66102f4c'
