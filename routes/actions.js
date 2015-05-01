@@ -19,6 +19,9 @@ router.get('/arduino', function(req, res, next) {
     res.removeHeader('Content-Type');
     res.removeHeader('Date');
     res.removeHeader('ETag');
+    res.removeHeader("Access-Control-Allow-Origin");
+    res.removeHeader("Access-Control-Allow-Headers");
+    res.removeHeader('Access-Control-Allow-Methods');
 
 		connection.query('select * from actions where deviceId = \''+req.query.deviceId+'\' AND ack = 0 limit 1;', function(err, rows, fields) {
 		  if (err){
