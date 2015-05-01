@@ -43,9 +43,7 @@ router.get('/', function(req, res, next) {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
             console.log("response for memberships"+responseObject);
-            res.header(
-                'id',responseObject[0].id
-            );
+            res.send(responseObject);
             res.status(200);
             res.end();
         })
