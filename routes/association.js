@@ -64,8 +64,8 @@ function getOAuthToken(req,res,endpoint, method) {
             var accessToken =  responseObject.access_token
 	        getUserRequest(req,res,'/person/v1/persons?username='+req.query.userName, 'GET', accessToken);
 	    
-	   res.status(200);
-	   res.end();
+	   //res.status(200);
+	   //res.end();
         });
     }).on('error', function(e) {
         console.log("Got error: ");
@@ -208,7 +208,7 @@ var request = {
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
    //        if(responseObject.length==1)
-               console.log(responseString); 
+               console.log(responseObject); 
            res.status(200);
            res.end();
         });
