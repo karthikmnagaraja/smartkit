@@ -20,8 +20,6 @@ router.get('/arduino', function(req, res, next) {
     res.removeHeader('Date');
     res.removeHeader('ETag');
 
-    connection.connect();
-
 		connection.query('select * from actions where deviceId = \''+req.query.deviceId+'\' AND ack = 0 limit 1;', function(err, rows, fields) {
 		  if (err){
 		  	console.log("Got error: ");
@@ -32,15 +30,13 @@ router.get('/arduino', function(req, res, next) {
 
 		  	if(rows.length > 0){
 			  	console.log('The solution is: ', rows[0]);
-			  	response.header('pin',rows[0].pin);
-			  	response.header('val',rows[0].val);
+			  	res.header('pin',rows[0].pin);
+			  	res.header('val',rows[0].val);
 				}
 			  res.status(200);
 			  res.end();
 			}
 		});
-
-		connection.end();
 
 });
 
