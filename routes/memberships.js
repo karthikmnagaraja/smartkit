@@ -7,10 +7,10 @@ var host = 'api.us1.covisint.com';
 var https = require('https');
 
 router.get('/', function(req, res, next) {
-    console.log("reached router!!!");
+    console.log("memberships api reached router!!!");
     getUser(req,res);
 });
-    function getMemberships(req,res,endpoint, method){
+    function getMemberships(req,res,endpoint, method,accessToken){
     res.removeHeader('X-Powered-By');
     res.removeHeader('Connection');
     res.removeHeader('Content-Length');
@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
-            console.log(responseObject);
+            console.log("response for memberships"+responseObject);
             res.header(
                 'id',responseObject[0].id
             );
@@ -89,7 +89,7 @@ function getOAuthToken(req,res,endpoint, method) {
 
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
-            var accessToken =  responseObject.access_token
+            var accessToken =  responseObject.access_token;
             getMemberships(req,res,'/group/v1/groups?group.owner.id=FJQ4Y6K0' + '&member.id='+req.query.userId, 'GET', accessToken);
 
             res.status(200);
