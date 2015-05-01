@@ -37,7 +37,7 @@
                 <label for='username'> UserName:</label>
                 <input  type="text" ng-model="username" placeholder="Usename" autofocus='autofocus'/>
                 <label for='groupId'>Group ID:</label>
-                <input type="value" ng-model="groupId" placeholder='groupId' name='groupId'/>
+                <input type="value" ng-model="groupName" placeholder='groupId' name='groupId'/>
                 <p></p>
                 <button type="submit" ng-click='Login()'>Submit</button>
             </section>
@@ -46,7 +46,7 @@
                 <i ng-repeat="user in users">
 
                     <span class="{{user.username}}">{{user.username}}</span>
-                    <span class="{{user.groupId}}">{{user.groupId}}</span>
+                    <span class="{{user.groupName}}">{{user.groupName}}</span>
                     <br style="clear:both" />
                 </i>
 

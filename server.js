@@ -20,6 +20,8 @@ var actions = require('./routes/actions');
 //OAuth
 var oAuth=require('./routes/oAuth');
 var association=require('./routes/association');
+var memberships = require('./routes/memberships');
+
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -39,6 +41,7 @@ app.use('/oAuth',oAuth);
 app.use('/groups', groups);
 app.use('/actions', actions);
 app.use('/association',association);
+app.use('/memberships', memberships);
 ////////////////////////////////////////////////////////////////////////////////////
 
 // configure app to use bodyParser()
