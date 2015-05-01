@@ -20,8 +20,7 @@ router.get('/', function(req, res, next) {
 
     headers = {
         'Authorization' : 'Bearer '+accessToken,
-        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup',
-        'Content-Type' : 'application/vnd.com.covisint.platform.group.membership.v1+json'
+        'Accept' : 'application/vnd.com.covisint.platform.group.membership.v1+json;includeGroupAndEntitlements;includeGroup'
     };
 
     var options = {
@@ -43,7 +42,7 @@ router.get('/', function(req, res, next) {
 
         exres.on('end', function() {
             var responseObject = JSON.parse(responseString);
-            console.log("response for memberships\n"+responseObject);
+            console.log("response for memberships\n"+responseString);
             res.status(200);
             res.send(responseObject);
 
