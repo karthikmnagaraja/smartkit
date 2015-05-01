@@ -16,6 +16,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var groups = require('./routes/groups');
 var actions = require('./routes/actions');
+
 //OAuth
 var oAuth=require('./routes/oAuth');
 //view engine setup
