@@ -10,6 +10,9 @@ router.get('/arduino', function(req, res, next) {
     res.removeHeader('Content-Type');
     res.removeHeader('Date');
     res.removeHeader('ETag');
+    res.removeHeader("Access-Control-Allow-Origin");
+    res.removeHeader("Access-Control-Allow-Headers");
+    res.removeHeader('Access-Control-Allow-Methods');
 
     headers = {
         'Authorization' : req.get('Authorization'),
